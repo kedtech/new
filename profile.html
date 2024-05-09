@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+
+{% block title %}Donation - Kebenei Foundation{% endblock %}
+
+{% block content %}
+<body class="templatemo-container">
+
+    <!-- header image -->
+    <div class="header-img-3"></div>
+    <!-- end header image -->
+    <!-- Welcome message -->
+    <div class="welcome-container">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="welcome-wrapper">
+                        <h2 class="welcome-title text-uppercase">Our Athletes</h2>
+                        <img src="/static/img/welcome-divider-lines.png" alt="Welcome divider" class="welcome-divider-lines-img">
+                        <p class="welcome-description">The Kebenei Foundation Scholarship Athletic Camp is a week-long intensive training program designed to provide young athletes with the skills, knowledge, and inspiration they need to excel in their respective sports. Led by a team of experienced coaches and mentors, the camp offers a comprehensive curriculum that covers technical training, tactical strategies, mental conditioning, and leadership development.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Welcome message -->
+    <!-- main content -->
+    <section class="templatemo-container">
+        <div class="container">
+            <div class="row margin-bottom-30">
+                <div class="col-lg-12 text-uppercase text-center">
+                    <h2 class="section-title">Our Roster</h2>
+                    <div class="section-title-underline-blue"></div>
+                    <hr class="section-title-underline">
+                    <p class="small">Our Athletes Roster</p>
+                </div>
+            </div>
+
+            <div id="folio-container" class="row">
+                <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 margin-bottom-30 folio-item design">
+                    <img src="/static/img/200.jpg" alt="Image" class="img-thumbnail">
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 margin-bottom-30 folio-item design">
+                    <img src="/static/img/201.jpg" alt="Image" class="img-thumbnail">
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 margin-bottom-30 folio-item design">
+                    <img src="/static/img/202.jpg" alt="Image" class="img-thumbnail">
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 margin-bottom-30 folio-item design">
+                    <img src="/static/img/203.jpg" alt="Image" class="img-thumbnail">
+                </div>
+            </div>
+        </div>
+    </section>
+<div class="blue-divider effect1">
+        <div class="dark-blue-bg"></div>
+        <div class="blue-divider-bg-graphic"></div>
+        <div class="blue-bg"></div>
+    </div>
+
+    <script>
+        // All images are loaded. Call isotope
+        $(window).load(function() {
+             var $container = $('#folio-container');
+            // init
+            $container.isotope({
+            // options
+            itemSelector: '.folio-item',
+            animationOptions: {
+                    duration: 750,
+                    easing: 'linear',
+                    queue: false
+                },
+            });
+
+            // filter items when filter link is clicked
+            jQuery('#filters a').click(function(){
+                var selector = $(this).attr('data-filter');
+                $container.isotope({ filter: selector });
+                return false;
+            });
+
+            jQuery('#filters li a').click(function(){
+
+                jQuery('#filters li').removeClass('current');
+                jQuery(this).parent().addClass('current');
+            });
+        });
+    </script>
+</body>
+{% endblock %}
